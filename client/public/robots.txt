@@ -1,0 +1,15 @@
+# robots.txt para Clínica Dra. Erika Gonçalves
+# Permitir indexação de todo o site
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://clinicadraerikagoncalves.com/sitemap.xml
+
+# Crawl-delay para bots específicos
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1

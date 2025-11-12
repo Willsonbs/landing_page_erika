@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://clinicadraerikagoncalves.com/</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://clinicadraerikagoncalves.com/dra-erika.jpg</image:loc>
+      <image:title>Dra. Erika Gonçalves - Psiquiatra em Caruaru</image:title>
+      <image:caption>Médica psiquiatra especializada em ansiedade, depressão, TDAH e transtornos mentais</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Seção Sobre -->
+  <url>
+    <loc>https://clinicadraerikagoncalves.com/#about</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Seção Tratamentos -->
+  <url>
+    <loc>https://clinicadraerikagoncalves.com/#treatments</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Seção E-books -->
+  <url>
+    <loc>https://clinicadraerikagoncalves.com/#ebooks</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Seção Avaliações -->
+  <url>
+    <loc>https://clinicadraerikagoncalves.com/#reviews</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Seção FAQ -->
+  <url>
+    <loc>https://clinicadraerikagoncalves.com/#faq</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Seção Contato -->
+  <url>
+    <loc>https://clinicadraerikagoncalves.com/#contact</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

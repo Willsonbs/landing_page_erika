@@ -1,0 +1,27 @@
+{
+  "name": "Dra. Erika Gonçalves - Psiquiatria",
+  "short_name": "Dra. Erika",
+  "description": "Psiquiatra em Caruaru especializada em ansiedade, depressão, TDAH, burnout e transtornos mentais",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b0c2b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
