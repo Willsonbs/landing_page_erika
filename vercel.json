@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "public": false,
+  "functions": {
+    "server/_core/index.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/trpc/:path*",
+      "destination": "/dist/index.js"
+    },
+    {
+      "source": "/api/oauth/:path*",
+      "destination": "/dist/index.js"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/dist/client/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/dist/client/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

@@ -28,4 +28,8 @@
 - [x] Validar SEO e meta tags
 - [x] Testar integração com WhatsApp
 - [x] Otimizar performance
-- [ ] Deploy da landing page
+- [x] Configurar projeto para Vercel
+- [x] Criar arquivo vercel.json
+- [ ] Configurar variáveis de ambiente no Vercel
+- [ ] Deploy no Vercel
+- [ ] Testar funcionalidades após deploy
