@@ -109,9 +109,20 @@ No Vercel, você precisa configurar as seguintes variáveis de ambiente:
     - Título da aplicação
     - Exemplo: `Dra. Erika Gonçalves - Psiquiatra`
 
-15. **VITE_APP_LOGO**
-    - URL do logo da aplicação
+14. **VITE_APP_LOGO**
+    - URL do logo da aplicacao
     - Exemplo: `https://seu-dominio.com/logo.png`
+
+15. **GMAIL_USER**
+    - Email do Gmail para envio de mensagens de contato
+    - Exemplo: `willsonbs@gmail.com`
+    - **IMPORTANTE:** Deve ser um email Gmail com autenticacao de dois fatores ativada
+
+16. **GMAIL_PASSWORD**
+    - Senha de app do Gmail (nao a senha normal da conta)
+    - Gere em: https://myaccount.google.com/apppasswords
+    - Selecione "Mail" e "Windows Computer"
+    - Copie a senha de 16 caracteres (ex: `zxit qiud pwwc gxob`)
 
 ### Como Adicionar Variáveis no Vercel
 
@@ -182,6 +193,58 @@ No Vercel, você precisa configurar as seguintes variáveis de ambiente:
 3. Digite seu domínio (ex: `clinicadraerikagoncalves.com`)
 4. Siga as instruções para configurar DNS
 
+## Configurar Email para Formulario de Contato
+
+O projeto usa Nodemailer com Gmail para enviar emails do formulario de contato.
+
+### Passo 1: Ativar Autenticacao de Dois Fatores no Gmail
+
+1. Acesse: https://myaccount.google.com/security
+2. Ative "Verificacao em duas etapas"
+3. Confirme seu numero de telefone
+
+### Passo 2: Gerar Senha de App
+
+1. Acesse: https://myaccount.google.com/apppasswords
+2. Selecione:
+   - App: "Mail"
+   - Device: "Windows Computer" (ou seu dispositivo)
+3. Clique em "Generate"
+4. Copie a senha de 16 caracteres (ex: `zxit qiud pwwc gxob`)
+
+### Passo 3: Adicionar Variaveis no Vercel
+
+1. No Vercel, vá para seu projeto
+2. Clique em "Settings" → "Environment Variables"
+3. Adicione:
+   - **GMAIL_USER:** `willsonbs@gmail.com`
+   - **GMAIL_PASSWORD:** `zxit qiud pwwc gxob` (a senha gerada)
+4. Selecione "Production", "Preview" e "Development"
+5. Clique em "Save"
+
+### Passo 4: Fazer Deploy
+
+1. Faça push das mudancas para GitHub
+2. O Vercel fara o deploy automaticamente
+3. Teste o formulario de contato na landing page
+
+### Testar Localmente
+
+Para testar o envio de emails localmente:
+
+1. Crie um arquivo `.env.local` na raiz do projeto:
+   ```
+   GMAIL_USER=willsonbs@gmail.com
+   GMAIL_PASSWORD=zxit qiud pwwc gxob
+   ```
+
+2. Execute o servidor de desenvolvimento:
+   ```bash
+   pnpm dev
+   ```
+
+3. Acesse http://localhost:3000 e teste o formulario
+
 ## Troubleshooting
 
 ### Erro: "Build failed"
@@ -196,14 +259,21 @@ No Vercel, você precisa configurar as seguintes variáveis de ambiente:
 ### Erro: "Database connection failed"
 - Verifique a string `DATABASE_URL`
 - Certifique-se de que o banco de dados está acessível
-- Teste a conexão localmente primeiro
-
-### Página não carrega
+- Teste a conexão localmente primei### Erro: "Pagina nao carrega"
 - Verifique se o build foi bem-sucedido
 - Limpe o cache do navegador (Ctrl+Shift+Delete)
 - Verifique o console do navegador para erros
 
-## Próximos Passos
+### Erro: "Falha ao enviar email"
+- Verifique se GMAIL_USER e GMAIL_PASSWORD estao configurados no Vercel
+- Verifique se a autenticacao de dois fatores esta ativada no Gmail
+- Verifique se a senha de app foi gerada corretamente
+- Verifique os logs do Vercel para mais detalhes
+
+### Email nao chega na caixa de entrada
+- Verifique a pasta de spam
+- Verifique se o email esta sendo enviado (verifique os logs)
+- Teste com um email diferente Próximos Passos
 
 1. **Configurar email para notificações de contato**
 2. **Adicionar mais conteúdo e imagens**

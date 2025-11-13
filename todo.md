@@ -30,6 +30,10 @@
 - [x] Otimizar performance
 - [x] Configurar projeto para Vercel
 - [x] Criar arquivo vercel.json
-- [ ] Configurar variáveis de ambiente no Vercel
+- [x] Implementar tRPC procedure para formulario de contato
+- [x] Integrar Nodemailer com Gmail
+- [x] Atualizar componente Contact.tsx para usar tRPC
+- [x] Criar documentacao de configuracao de email
+- [ ] Configurar variáveis de ambiente no Vercel (GMAIL_USER, GMAIL_PASSWORD)
 - [ ] Deploy no Vercel
 - [ ] Testar funcionalidades após deploy

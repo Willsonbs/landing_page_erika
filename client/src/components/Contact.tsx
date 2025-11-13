@@ -2,10 +2,12 @@ import { useState, useRef } from 'react';
 import { MapPin, Phone, Clock, Instagram, Mail, Send } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { toast } from 'sonner';
+import { trpc } from '@/lib/trpc';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const sendMessageMutation = trpc.contact.sendMessage.useMutation();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -13,32 +15,34 @@ export default function Contact() {
 
     try {
       const formData = new FormData(event.currentTarget);
-      
-      // Web3Forms configuration
-      formData.append("access_key", "e94a798f-23f9-4def-abc1-d7cd4af0ba2c");
-      formData.append("subject", `Nova mensagem de ${formData.get('name')} - Site Dra. Erika Gonçalves`);
-      formData.append("from_name", "Site Dra. Erika Gonçalves");
-      formData.append("redirect", "false");
+      const name = formData.get('name') as string;
+      const email = formData.get('email') as string;
+      const phone = formData.get('phone') as string;
+      const message = formData.get('message') as string;
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
+      // Validacao basica
+      if (!name || !email || !phone || !message) {
+        toast.error('Por favor, preencha todos os campos.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Enviar via tRPC
+      await sendMessageMutation.mutateAsync({
+        name,
+        email,
+        phone,
+        message,
       });
 
-      const data = await response.json();
-
-      if (data.success) {
-        console.log('Email enviado com sucesso:', data);
-        toast.success('Mensagem enviada com sucesso! A Dra. Erika Gonçalves entrará em contato em breve.');
-        if (formRef.current) {
-          formRef.current.reset();
-        }
-      } else {
-        throw new Error(data.message || 'Erro ao enviar mensagem');
+      toast.success('Mensagem enviada com sucesso! A Dra. Erika Goncalves entrara em contato em breve.');
+      if (formRef.current) {
+        formRef.current.reset();
       }
     } catch (error) {
-      console.error('Erro ao enviar email:', error);
-      toast.error('Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato via WhatsApp.');
+      console.error('Erro ao enviar mensagem:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Erro ao enviar mensagem';
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -52,7 +56,7 @@ export default function Contact() {
             Agende sua consulta
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A Dra. Erika realiza atendimentos presenciais e online. Escolha a forma mais confortável para você.
+            A Dra. Erika realiza atendimentos presenciais e online. Escolha a forma mais confortavel para voce.
           </p>
         </div>
 
@@ -89,7 +93,7 @@ export default function Contact() {
                   <MapPin size={24} className="text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-primary mb-1">Localização</h3>
+                  <h3 className="text-lg font-bold text-primary mb-1">Localizacao</h3>
                   <a
                     href="https://maps.app.goo.gl/Fsmbn339n6CrVmcEA"
                     target="_blank"
@@ -99,10 +103,10 @@ export default function Contact() {
                     Empresarial Nordeste Corporate
                   </a>
                   <p className="text-sm text-muted-foreground mt-1">
-                    R. Artur Antônio da Silva, 481 - Salas 1006 e 1007
+                    R. Artur Antonio da Silva, 481 - Salas 1006 e 1007
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Universitário, Caruaru - PE, 55016-445
+                    Universitario, Caruaru - PE, 55016-445
                   </p>
                 </div>
               </div>
@@ -115,8 +119,8 @@ export default function Contact() {
                   <Clock size={24} className="text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-primary mb-1">Horário de Atendimento</h3>
-                  <p className="text-foreground font-semibold">08h às 18h</p>
+                  <h3 className="text-lg font-bold text-primary mb-1">Horario de Atendimento</h3>
+                  <p className="text-foreground font-semibold">08h as 18h</p>
                   <p className="text-sm text-muted-foreground">Segunda a sexta</p>
                 </div>
               </div>
@@ -139,7 +143,7 @@ export default function Contact() {
                     @draerikagoncalves
                   </a>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Acompanhe conteúdos sobre saúde mental
+                    Acompanhe conteudos sobre saude mental
                   </p>
                 </div>
               </div>
@@ -155,7 +159,7 @@ export default function Contact() {
                   <h3 className="text-2xl font-bold text-primary">Envie uma Mensagem</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  Preencha o formulário abaixo e a Dra. Erika entrará em contato em breve.
+                  Preencha o formulario abaixo e a Dra. Erika entrara em contato em breve.
                 </p>
               </div>
 
@@ -213,7 +217,7 @@ export default function Contact() {
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Descreva sua dúvida ou solicitação..."
+                    placeholder="Descreva sua duvida ou solicitacao..."
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary transition-all resize-none"
                     required
@@ -231,7 +235,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-xs text-muted-foreground text-center">
-                  * Campos obrigatórios. Responderemos em breve.
+                  * Campos obrigatorios. Responderemos em breve.
                 </p>
               </form>
             </Card>
@@ -241,7 +245,7 @@ export default function Contact() {
         {/* CTA */}
         <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Pronto para cuidar da sua saúde mental?
+            Pronto para cuidar da sua saude mental?
           </h3>
           <p className="text-white/90 mb-6 text-lg">
             Entre em contato com a Dra. Erika e agende sua consulta hoje mesmo.
