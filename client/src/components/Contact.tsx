@@ -49,14 +49,20 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-secondary-light">
+    <section id="contact" className="py-20" style={{ background: '#f0fdf4' }}>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Agende sua consulta
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: '#2d6a4f' }}>
+            CONTATO
+          </p>
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#1b4332' }}
+          >
+            Agende sua Consulta
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A Dra. Erika realiza atendimentos presenciais e online. Escolha a forma mais confortavel para voce.
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#52796f' }}>
+            A Dra. Erika realiza atendimentos presenciais e online. Escolha a forma mais confortável para você.
           </p>
         </div>
 
@@ -93,7 +99,7 @@ export default function Contact() {
                   <MapPin size={24} className="text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-primary mb-1">Localizacao</h3>
+                  <h3 className="text-lg font-bold text-primary mb-1">Localização</h3>
                   <a
                     href="https://maps.app.goo.gl/Fsmbn339n6CrVmcEA"
                     target="_blank"
@@ -119,7 +125,7 @@ export default function Contact() {
                   <Clock size={24} className="text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-primary mb-1">Horario de Atendimento</h3>
+                  <h3 className="text-lg font-bold text-primary mb-1">Horário de Atendimento</h3>
                   <p className="text-foreground font-semibold">08h as 18h</p>
                   <p className="text-sm text-muted-foreground">Segunda a sexta</p>
                 </div>
@@ -159,7 +165,7 @@ export default function Contact() {
                   <h3 className="text-2xl font-bold text-primary">Envie uma Mensagem</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  Preencha o formulario abaixo e a Dra. Erika entrara em contato em breve.
+                  Preencha o formulário abaixo e a Dra. Erika entrara em contato em breve.
                 </p>
               </div>
 
@@ -217,7 +223,7 @@ export default function Contact() {
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Descreva sua duvida ou solicitacao..."
+                    placeholder="Descreva sua dúvida ou solicitação..."
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary transition-all resize-none"
                     required
@@ -235,7 +241,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-xs text-muted-foreground text-center">
-                  * Campos obrigatorios. Responderemos em breve.
+                  * Campos obrigatórios. Responderemos em breve.
                 </p>
               </form>
             </Card>

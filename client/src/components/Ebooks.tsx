@@ -89,14 +89,20 @@ export default function Ebooks() {
   ];
 
   return (
-    <section id="ebooks" className="py-20 bg-background">
+    <section id="ebooks" className="py-20" style={{ background: '#f0fdf4' }}>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: '#2d6a4f' }}>
+            RECURSOS GRATUITOS
+          </p>
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#1b4332' }}
+          >
             Conteúdos Gratuitos
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Conteúdos gratuitos para te ajudar no cuidado emocional. Baixe nossos guias especializados e comece sua jornada de bem-estar.
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#52796f' }}>
+            Guias especializados para te ajudar no cuidado emocional. Baixe gratuitamente e comece sua jornada de bem-estar.
           </p>
         </div>
 

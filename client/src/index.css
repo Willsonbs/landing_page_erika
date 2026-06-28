@@ -43,80 +43,81 @@
 }
 
 :root {
-  /* Paleta de cores da Dra. Erika */
-  --primary: #0b0c2b; /* Azul escuro profundo */
-  --primary-foreground: #ffffff; /* Branco */
-  --secondary: #9f895d; /* Dourado quente */
-  --secondary-foreground: #ffffff; /* Branco */
-  --accent: #a08a5d; /* Dourado mais claro */
-  --accent-foreground: #ffffff; /* Branco */
-  
-  --background: #ffffff; /* Branco */
-  --foreground: #0b0c2b; /* Azul escuro */
-  --card: #ffffff; /* Branco */
-  --card-foreground: #0b0c2b; /* Azul escuro */
-  --popover: #ffffff; /* Branco */
-  --popover-foreground: #0b0c2b; /* Azul escuro */
-  --secondary-light: #f5f3f0; /* Bege muito claro */
-  --muted: #e8e5e0; /* Bege claro */
-  --muted-foreground: #6b6b6b; /* Cinza médio */
+  /* Paleta Verde Floresta - Dra. Erika Gonçalves */
+  --primary: #2d6a4f;           /* Verde floresta principal */
+  --primary-dark: #1b4332;      /* Verde escuro profundo */
+  --primary-foreground: #ffffff;
+  --secondary: #52b788;         /* Verde médio / suave */
+  --secondary-foreground: #1b4332;
+  --accent: #74c69d;            /* Verde claro accent */
+  --accent-foreground: #1b4332;
+
+  --background: #ffffff;
+  --foreground: #1b4332;
+  --card: #ffffff;
+  --card-foreground: #1b4332;
+  --popover: #ffffff;
+  --popover-foreground: #1b4332;
+  --secondary-light: #f0fdf4;   /* Verde muito claro */
+  --muted: #d8f3dc;             /* Verde pálido */
+  --muted-foreground: #52796f;  /* Verde acinzentado */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #e8e5e0; /* Bege claro */
-  --input: #f5f3f0; /* Bege muito claro */
-  --ring: #9f895d; /* Dourado */
+  --border: #b7e4c7;            /* Borda verde suave */
+  --input: #f0fdf4;
+  --ring: #2d6a4f;              /* Verde */
   --sidebar: #ffffff;
-  --sidebar-foreground: #0b0c2b;
-  --sidebar-primary: #0b0c2b;
+  --sidebar-foreground: #1b4332;
+  --sidebar-primary: #2d6a4f;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #9f895d;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #e8e5e0;
-  --sidebar-ring: #9f895d;
-  --chart-1: #0b0c2b;
-  --chart-2: #9f895d;
-  --chart-3: #a08a5d;
-  --chart-4: #6b6b6b;
-  --chart-5: #d4c5b9;
+  --sidebar-accent: #52b788;
+  --sidebar-accent-foreground: #1b4332;
+  --sidebar-border: #b7e4c7;
+  --sidebar-ring: #2d6a4f;
+  --chart-1: #2d6a4f;
+  --chart-2: #52b788;
+  --chart-3: #74c69d;
+  --chart-4: #52796f;
+  --chart-5: #d8f3dc;
   --radius: 0.65rem;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Cormorant:wght@400;500;600;700&display=swap');
 
 .dark {
-  --primary: #0b0c2b;
+  --primary: #2d6a4f;
+  --primary-dark: #1b4332;
   --primary-foreground: #ffffff;
-  --secondary: #9f895d;
-  --secondary-foreground: #ffffff;
-  --accent: #a08a5d;
-  --accent-foreground: #ffffff;
-  --background: #0f1117;
-  --foreground: #e8e5e0;
-  --card: #1a1b2e;
-  --card-foreground: #e8e5e0;
-  --popover: #1a1b2e;
-  --popover-foreground: #e8e5e0;
-  --secondary-light: #2a2b3e;
-  --muted: #3a3b4e;
-  --muted-foreground: #a8a8a8;
+  --secondary: #52b788;
+  --secondary-foreground: #1b4332;
+  --accent: #74c69d;
+  --accent-foreground: #1b4332;
+  --background: #081c12;
+  --foreground: #d8f3dc;
+  --card: #0f2d1c;
+  --card-foreground: #d8f3dc;
+  --popover: #0f2d1c;
+  --popover-foreground: #d8f3dc;
+  --secondary-light: #0a1f12;
+  --muted: #1a3d28;
+  --muted-foreground: #74c69d;
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: #ffffff;
-  --border: #3a3b4e;
-  --input: #2a2b3e;
-  --ring: #9f895d;
-  --sidebar: #1a1b2e;
-  --sidebar-foreground: #e8e5e0;
-  --sidebar-primary: #0b0c2b;
+  --border: #1e4d30;
+  --input: #0a1f12;
+  --ring: #52b788;
+  --sidebar: #081c12;
+  --sidebar-foreground: #d8f3dc;
+  --sidebar-primary: #2d6a4f;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #9f895d;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #3a3b4e;
-  --sidebar-ring: #9f895d;
-  --chart-1: #e8e5e0;
-  --chart-2: #9f895d;
-  --chart-3: #a08a5d;
-  --chart-4: #a8a8a8;
-  --chart-5: #d4c5b9;
+  --sidebar-accent: #52b788;
+  --sidebar-accent-foreground: #1b4332;
+  --sidebar-border: #1e4d30;
+  --sidebar-ring: #2d6a4f;
+  --chart-1: #d8f3dc;
+  --chart-2: #52b788;
+  --chart-3: #74c69d;
+  --chart-4: #52796f;
+  --chart-5: #1a3d28;
 }
 
 @layer base {

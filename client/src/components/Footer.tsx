@@ -1,98 +1,161 @@
 import { Phone, MapPin, Instagram, MessageCircle } from 'lucide-react';
 
+const navLinks = [
+  { label: 'Início', id: 'home' },
+  { label: 'Sobre', id: 'about' },
+  { label: 'Tratamentos', id: 'treatments' },
+  { label: 'Avaliações', id: 'reviews' },
+];
+
+const services = [
+  'Terapia Individual',
+  'Saúde Mental Online',
+  'TDAH em Adultos',
+  'Ansiedade & Depressão',
+  'Burnout & Estresse',
+  'Saúde Mental no Trabalho',
+  'Neuromodulação (tDCS)',
+];
+
+const scrollTo = (id: string) =>
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-12">
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* About */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Clínica Dra. Erika Gonçalves</h3>
-            <p className="text-white/80 leading-relaxed">
-              Psiquiatria e saúde mental com foco em atendimento humanizado, integrando ciência, empatia e cuidado.
+    <footer className="text-white" style={{ background: '#1b4332' }}>
+      <div className="container py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/logo.png" alt="Logo Dra. Erika" className="h-10 w-auto" />
+              <div>
+                <h3 className="font-bold text-white leading-tight text-sm">Dra. Erika Gonçalves</h3>
+                <p className="text-xs" style={{ color: '#74c69d' }}>CRM PE 29662 | Psiquiatria</p>
+              </div>
+            </div>
+            <p className="text-white/65 leading-relaxed text-sm mb-4">
+              Psiquiatria humanizada e baseada em ciência — cuidado integral para uma vida
+              mais saudável e plena em Caruaru, PE.
+            </p>
+            <p className="text-white/40 text-xs">
+              R. Artur Antônio da Silva, 481<br />
+              Salas 1006 e 1007 — Caruaru, PE
             </p>
           </div>
 
-          {/* Contact Info */}
+          {/* Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Contato</h3>
-            <div className="space-y-3">
+            <h4 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: '#74c69d' }}>
+              Essencial
+            </h4>
+            <ul className="space-y-2">
+              {navLinks.map(({ label, id }) => (
+                <li key={id}>
+                  <button
+                    type="button"
+                    onClick={() => scrollTo(id)}
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollTo('ebooks')}
+                  className="text-white/70 hover:text-white transition-colors text-sm"
+                >
+                  E-books Gratuitos
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => scrollTo('contact')}
+                  className="text-white/70 hover:text-white transition-colors text-sm"
+                >
+                  Contato
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: '#74c69d' }}>
+              Nossos Serviços
+            </h4>
+            <ul className="space-y-2">
+              {services.map((s) => (
+                <li key={s}>
+                  <span className="text-white/70 text-sm">{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact & Social */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: '#74c69d' }}>
+              Suporte
+            </h4>
+            <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3">
-                <Phone size={18} />
+                <Phone size={15} style={{ color: '#74c69d' }} />
                 <a
                   href="https://wa.me/5581982095424"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white/80 transition-colors"
+                  className="text-white/75 hover:text-white transition-colors text-sm"
                 >
                   (81) 98209-5424
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="flex-shrink-0 mt-1" />
+                <MapPin size={15} className="flex-shrink-0 mt-0.5" style={{ color: '#74c69d' }} />
                 <a
                   href="https://maps.app.goo.gl/Fsmbn339n6CrVmcEA"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white/80 transition-colors text-sm"
+                  className="text-white/75 hover:text-white transition-colors text-sm"
                 >
                   R. Artur Antônio da Silva, 481<br />
-                  Salas 1006 e 1007, Caruaru - PE
+                  Salas 1006 e 1007 — Caruaru, PE
                 </a>
               </div>
             </div>
-          </div>
-
-          {/* Hours & Social */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Horário e Redes</h3>
-            <p className="text-white/80 mb-4">
-              Segunda a sexta<br />
-              08h às 18h
-            </p>
-            <div className="flex gap-4">
-              <a
-                href="https://wa.me/5581982095424"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle size={20} />
-              </a>
-              <a
-                href="https://instagram.com/draerikagoncalves"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              <a
-                href="https://maps.app.goo.gl/Fsmbn339n6CrVmcEA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
-                aria-label="Google Maps"
-              >
-                <MapPin size={20} />
-              </a>
+            <p className="text-white/50 text-xs mb-3">Segunda a sexta — 08h às 18h</p>
+            <div className="flex gap-3">
+              {[
+                { href: 'https://wa.me/5581982095424', icon: MessageCircle, label: 'WhatsApp' },
+                { href: 'https://instagram.com/draerikagoncalves', icon: Instagram, label: 'Instagram' },
+                { href: 'https://maps.app.goo.gl/Fsmbn339n6CrVmcEA', icon: MapPin, label: 'Google Maps' },
+              ].map(({ href, icon: Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white/20"
+                  style={{ background: 'rgba(116,198,157,0.15)', border: '1px solid rgba(116,198,157,0.3)' }}
+                  aria-label={label}
+                >
+                  <Icon size={16} style={{ color: '#74c69d' }} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-white/20 pt-8">
-          {/* Bottom Content */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/80">
-            <p>
-              Cuidar da mente é o primeiro passo para uma vida plena. 🌿
-            </p>
-            <p>
-              &copy; {new Date().getFullYear()} Clínica Dra. Erika Gonçalves. Todos os direitos reservados.
-            </p>
-          </div>
+        <div
+          className="border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs"
+          style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.40)' }}
+        >
+          <p>Cuidar da mente é o primeiro passo para uma vida plena.</p>
+          <p>&copy; {new Date().getFullYear()} Dra. Erika Gonçalves Leitão. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

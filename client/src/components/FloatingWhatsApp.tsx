@@ -6,7 +6,8 @@ export default function FloatingWhatsApp() {
       href="https://wa.me/5581982095424"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-secondary hover:bg-secondary/90 text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 z-40 animate-bounce"
+      className="fixed bottom-8 right-8 w-14 h-14 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 z-40 hover:scale-110"
+      style={{ background: 'linear-gradient(135deg, #25d366, #128c7e)', color: '#fff' }}
       aria-label="Conversar no WhatsApp"
       title="Conversar com Dra. Erika no WhatsApp"
     >

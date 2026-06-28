@@ -1,212 +1,152 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, GraduationCap, Brain, Stethoscope } from 'lucide-react';
+import { GraduationCap, Brain, Stethoscope, CheckCircle2 } from 'lucide-react';
+
+const credentials = [
+  { icon: GraduationCap, label: 'Graduação em Medicina – UNIT (2020)' },
+  { icon: GraduationCap, label: 'Pós-graduação em Psiquiatria Geral – Univ. São Judas Tadeu (2024)' },
+  { icon: Brain, label: 'Formação em Neuromodulação – UNIFESP (2025)' },
+  { icon: Brain, label: 'Pós-graduanda em Neuromodulação – Inst. Ricardo Galhardoni' },
+  { icon: Stethoscope, label: 'Pós-graduanda em Neurociências e TEA – CTC Dr. Thiago Castro' },
+];
+
+const specialties = [
+  'Ansiedade & Pânico',
+  'Depressão',
+  'TDAH',
+  'Transtorno Bipolar',
+  'TOC',
+  'Burnout',
+  'TEA',
+  'Neuromodulação',
+];
+
+const trustIndicators = [
+  { label: 'Profissional Licenciada', sub: 'CRM PE 29662' },
+  { label: '5+ Anos de Experiência', sub: 'Em Psiquiatria Clínica' },
+  { label: 'Baseada em Evidências', sub: 'Científicas Atualizadas' },
+  { label: 'Sigilo Garantido', sub: '100% Confidencial' },
+];
 
 export default function About() {
-  const [currentCard, setCurrentCard] = useState(0);
-
-  const cards = [
-    {
-      id: 1,
-      title: 'Dra. Erika Gonçalves',
-      subtitle: 'Médica – CRM 29662',
-      icon: null,
-      content: (
-        <div className="space-y-4">
-          <p className="text-lg leading-relaxed">
-            Se você enfrenta transtornos como ansiedade, depressão, TDAH, TOC, transtorno do pânico, síndrome de burnout ou outras condições que afetam seu bem-estar emocional e mental, saiba que não está sozinho(a).
-          </p>
-          <p className="text-lg leading-relaxed">
-            A consulta com a Dra. Erika Gonçalves pode ser o primeiro passo para restaurar o equilíbrio e reencontrar qualidade de vida.
-          </p>
-          <p className="text-lg leading-relaxed font-semibold text-primary">
-            Com uma abordagem acolhedora, científica e personalizada, a Dra. Erika oferece cuidado integral, considerando a singularidade de cada paciente.
-          </p>
-        </div>
-      ),
-    },
-    {
-      id: 2,
-      title: 'Formação Acadêmica',
-      subtitle: null,
-      icon: GraduationCap,
-      content: (
-        <ul className="space-y-4">
-          <li className="flex items-start gap-3">
-            <span className="text-secondary text-xl mt-1">•</span>
-            <span className="text-lg leading-relaxed">
-              Graduação em Medicina pela Universidade Tiradentes (UNIT) – Maceió/AL, concluída em 2020.
-            </span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-secondary text-xl mt-1">•</span>
-            <span className="text-lg leading-relaxed">
-              Pós-graduação em Psiquiatria Geral pela Universidade São Judas Tadeu – concluída em 2024.
-            </span>
-          </li>
-        </ul>
-      ),
-    },
-    {
-      id: 3,
-      title: 'Especializações',
-      subtitle: null,
-      icon: Brain,
-      content: (
-        <ul className="space-y-4">
-          <li className="flex items-start gap-3">
-            <span className="text-secondary text-xl mt-1">•</span>
-            <span className="text-lg leading-relaxed">
-              Formação em Neuromodulação e Primeiros Socorros em Neuromodulação pela UNIFESP – São Paulo (2025).
-            </span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-secondary text-xl mt-1">•</span>
-            <span className="text-lg leading-relaxed">
-              Pós-graduanda em Neuromodulação pelo Instituto Ricardo Galhardoni (2025–2026).
-            </span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-secondary text-xl mt-1">•</span>
-            <span className="text-lg leading-relaxed">
-              Pós-graduanda em Neurociências e Transtorno do Espectro Autista (TEA) pelo Dr. Thiago Castro – CTC (2025–2026).
-            </span>
-          </li>
-        </ul>
-      ),
-    },
-    {
-      id: 4,
-      title: 'Áreas de Atuação',
-      subtitle: null,
-      icon: Stethoscope,
-      content: (
-        <div className="space-y-4">
-          <p className="text-lg leading-relaxed">
-            Atendimento clínico-psiquiátrico de adolescentes (a partir dos 12 anos), adultos e idosos, com foco no diagnóstico e tratamento de:
-          </p>
-          <div className="grid grid-cols-1 gap-3">
-            {[
-              'Ansiedade e Transtorno do Pânico',
-              'Depressão e Transtornos de Humor',
-              'TDAH',
-              'Transtorno Bipolar',
-              'TOC (Transtorno Obsessivo-Compulsivo)',
-              'Burnout',
-              'Transtorno do Espectro Autista (TEA)',
-            ].map((area, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <span className="text-secondary text-xl mt-1">•</span>
-                <span className="text-lg leading-relaxed">{area}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      ),
-    },
-  ];
-
-  const nextCard = () => {
-    setCurrentCard((prev) => (prev + 1) % cards.length);
-  };
-
-  const prevCard = () => {
-    setCurrentCard((prev) => (prev - 1 + cards.length) % cards.length);
-  };
-
-  // Auto-play removido - usuário controla manualmente
-
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20" style={{ background: '#f0fdf4' }}>
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Photo */}
-          <div className="flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[446px]">
-              {/* Gradient Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-2xl blur-2xl"></div>
-              
-              {/* Image Container */}
-              <div className="relative w-full h-[595px] bg-gradient-to-br from-secondary/10 to-accent/5 rounded-2xl border border-border overflow-hidden">
-                <img
-                  src="/dra-erika-about.jpg"
-                  alt="Dra. Erika Gonçalves - Psiquiatra"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
+
+        {/* Section label */}
+        <div className="text-center mb-14">
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: '#2d6a4f' }}>
+            NOSSA ESPECIALISTA
+          </p>
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#1b4332' }}
+          >
+            Conheça a Dra. Erika Gonçalves Leitão
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#52796f' }}>
+            Profissional comprometida com o cuidado integral da saúde mental — combinando
+            ciência de ponta com escuta ativa e empatia genuína.
+          </p>
+        </div>
+
+        {/* Profile card */}
+        <div
+          className="rounded-3xl overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-2"
+          style={{ background: 'white', border: '1px solid #b7e4c7' }}
+        >
+          {/* Photo */}
+          <div className="relative h-80 lg:h-auto min-h-[420px]">
+            <img
+              src="/dra-erika-about.jpg"
+              alt="Dra. Erika Gonçalves Leitão – Psiquiatra"
+              className="w-full h-full object-cover object-top"
+            />
+            <div
+              className="absolute bottom-0 left-0 right-0 p-6"
+              style={{ background: 'linear-gradient(transparent, rgba(27,67,50,0.92))' }}
+            >
+              <p className="text-white font-bold text-xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Dra. Erika Gonçalves Leitão
+              </p>
+              <p className="text-sm mt-0.5" style={{ color: '#74c69d' }}>
+                Médica Psiquiatra • CRM PE 29662
+              </p>
             </div>
           </div>
 
-          {/* Right - Carousel Cards */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[720px] h-[595px]">
-              {/* Card Container */}
-              <div className="relative w-full h-full bg-gradient-to-br from-background to-accent/5 rounded-2xl border border-border p-8 flex flex-col overflow-hidden">
-                {/* Card Content */}
-                <div className="flex-1 overflow-y-auto">
-                  {/* Header */}
-                  <div className="mb-6">
-                    <div className="flex items-center gap-3 mb-2">
-                      {cards[currentCard].icon && 
-                        React.createElement(cards[currentCard].icon, { className: "text-secondary", size: 32 })
-                      }
-                      <h2 className="text-3xl md:text-4xl font-bold text-primary">
-                        {cards[currentCard].title}
-                      </h2>
-                    </div>
-                    {cards[currentCard].subtitle && (
-                      <p className="text-lg text-secondary font-semibold">
-                        {cards[currentCard].subtitle}
-                      </p>
-                    )}
+          {/* Info */}
+          <div className="p-8 lg:p-10 flex flex-col gap-7">
+            <div>
+              <p className="leading-relaxed text-base" style={{ color: '#52796f' }}>
+                Se você enfrenta ansiedade, depressão, TDAH, TOC, transtorno do pânico, burnout ou
+                outras condições que afetam seu bem-estar mental, saiba que{' '}
+                <strong style={{ color: '#1b4332' }}>você não está sozinho(a)</strong>.
+              </p>
+              <p className="leading-relaxed text-base mt-3" style={{ color: '#52796f' }}>
+                Com uma abordagem <strong style={{ color: '#1b4332' }}>acolhedora, científica e personalizada</strong>,
+                a Dra. Erika atende adolescentes (a partir dos 12 anos), adultos e idosos,
+                considerando a singularidade de cada pessoa.
+              </p>
+            </div>
+
+            {/* Credentials */}
+            <div>
+              <p className="font-bold text-sm mb-3 uppercase tracking-wide" style={{ color: '#2d6a4f' }}>
+                Formação & Especializações
+              </p>
+              <div className="space-y-2.5">
+                {credentials.map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-start gap-3">
+                    <Icon size={16} className="flex-shrink-0 mt-0.5" style={{ color: '#2d6a4f' }} />
+                    <span className="text-sm leading-relaxed" style={{ color: '#52796f' }}>{label}</span>
                   </div>
-
-                  {/* Content */}
-                  <div className="text-foreground">
-                    {cards[currentCard].content}
-                  </div>
-
-
-                </div>
-
-                {/* Navigation Controls */}
-                <div className="flex items-center justify-between mt-6 pt-6 border-t border-border">
-                  {/* Dots Indicators */}
-                  <div className="flex gap-2">
-                    {cards.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentCard(index)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                          index === currentCard
-                            ? 'bg-secondary w-8'
-                            : 'bg-border hover:bg-secondary/50'
-                        }`}
-                        aria-label={`Ir para card ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Arrow Buttons */}
-                  <div className="flex gap-2">
-                    <button
-                      onClick={prevCard}
-                      className="p-2 rounded-lg bg-secondary/10 hover:bg-secondary/20 text-secondary transition-colors"
-                      aria-label="Card anterior"
-                    >
-                      <ChevronLeft size={20} />
-                    </button>
-                    <button
-                      onClick={nextCard}
-                      className="p-2 rounded-lg bg-secondary/10 hover:bg-secondary/20 text-secondary transition-colors"
-                      aria-label="Próximo card"
-                    >
-                      <ChevronRight size={20} />
-                    </button>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
+
+            {/* Specialty tags */}
+            <div>
+              <p className="font-bold text-sm mb-3 uppercase tracking-wide" style={{ color: '#2d6a4f' }}>
+                Especialidades
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {specialties.map((s) => (
+                  <span
+                    key={s}
+                    className="text-xs font-semibold px-3 py-1.5 rounded-full"
+                    style={{ background: '#f0fdf4', color: '#2d6a4f', border: '1px solid #b7e4c7' }}
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <a
+              href="https://wa.me/5581982095424"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold text-base text-white transition-all duration-300 hover:opacity-90 hover:shadow-lg mt-auto"
+              style={{ background: '#2d6a4f' }}
+            >
+              💬 Agendar com a Dra. Erika
+            </a>
           </div>
+        </div>
+
+        {/* Trust indicators */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          {trustIndicators.map(({ label, sub }) => (
+            <div
+              key={label}
+              className="flex flex-col items-center text-center gap-2 rounded-2xl p-5"
+              style={{ background: 'white', border: '1px solid #b7e4c7' }}
+            >
+              <CheckCircle2 size={22} style={{ color: '#2d6a4f' }} />
+              <p className="font-bold text-sm leading-tight" style={{ color: '#1b4332' }}>{label}</p>
+              <p className="text-xs" style={{ color: '#52796f' }}>{sub}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
