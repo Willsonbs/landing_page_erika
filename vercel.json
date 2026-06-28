@@ -1,32 +1,18 @@
 {
   "version": 2,
-  "buildCommand": "pnpm build",
-  "devCommand": "pnpm dev",
+  "buildCommand": "vite build",
+  "outputDirectory": "dist/public",
   "installCommand": "pnpm install",
   "framework": null,
-  "public": false,
-  "functions": {
-    "server/_core/index.ts": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "rewrites": [
     {
-      "source": "/api/trpc/:path*",
-      "destination": "/dist/index.js"
-    },
-    {
-      "source": "/api/oauth/:path*",
-      "destination": "/dist/index.js"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/dist/client/index.html"
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/dist/client/:path*",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

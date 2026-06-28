@@ -2,12 +2,10 @@ import { useState, useRef } from 'react';
 import { MapPin, Phone, Clock, Instagram, Mail, Send } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { trpc } from '@/lib/trpc';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const sendMessageMutation = trpc.contact.sendMessage.useMutation();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,25 +18,26 @@ export default function Contact() {
       const phone = formData.get('phone') as string;
       const message = formData.get('message') as string;
 
-      // Validacao basica
       if (!name || !email || !phone || !message) {
         toast.error('Por favor, preencha todos os campos.');
         setIsSubmitting(false);
         return;
       }
 
-      // Enviar via tRPC
-      await sendMessageMutation.mutateAsync({
-        name,
-        email,
-        phone,
-        message,
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message }),
       });
 
-      toast.success('Mensagem enviada com sucesso! A Dra. Erika Goncalves entrara em contato em breve.');
-      if (formRef.current) {
-        formRef.current.reset();
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao enviar mensagem');
       }
+
+      toast.success('Mensagem enviada com sucesso! A Dra. Erika entrará em contato em breve.');
+      formRef.current?.reset();
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
       const errorMessage = error instanceof Error ? error.message : 'Erro ao enviar mensagem';
